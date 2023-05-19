@@ -2,18 +2,15 @@ from flask import Flask, render_template, jsonify, request
 from flask_pymongo import PyMongo
 import openai
 
-openai.api_key = "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"
-
-
-
+openai.api_key = "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"
 
 app = Flask(__name__)
-app.config["MONGO_URI"] = "mongodb+srv://harry123:7*Q9KMh%409XHW4rg@mongoyoutube.nhtraxd.mongodb.net/chatgpt"
+app.config["MONGO_URI"] = "mongodb+srv://satyam:satyam786@cluster0.frxb6un.mongodb.net/chatgpt"
 mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-    chats = mongo.db.chats.find({})
+    chats = mongo.db.query.find({})
     myChats = [chat for chat in chats]
     print(myChats)
     return render_template("index.html", myChats = myChats)
